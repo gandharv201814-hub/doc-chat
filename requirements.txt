@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic-settings
+sqlalchemy
+faiss-cpu
+numpy
+requests
+sentence-transformers

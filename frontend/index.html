@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doc Chat — Offline RAG</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>📄 Doc Chat</h1>
+    <span id="healthDot" class="health-dot" title="Checking server..."></span>
+  </header>
+
+  <main class="layout">
+    <!-- LEFT: Upload + Document list -->
+    <section class="panel">
+      <h2>Upload Document</h2>
+      <form id="uploadForm" class="upload-form">
+        <input type="file" id="fileInput" name="file" required />
+        <button type="submit" id="uploadBtn">Upload</button>
+      </form>
+      <p id="uploadStatus" class="status"></p>
+
+      <h2>Documents</h2>
+      <button id="refreshDocsBtn" class="secondary-btn">Refresh List</button>
+      <ul id="documentList" class="doc-list">
+        <li class="empty">No documents loaded yet.</li>
+      </ul>
+    </section>
+
+    <!-- MIDDLE: Ask a question -->
+    <section class="panel">
+      <h2>Ask a Question</h2>
+      <form id="askForm" class="ask-form">
+        <label for="docSelect">Search within:</label>
+        <select id="docSelect">
+          <option value="">All documents</option>
+        </select>
+
+        <label for="questionInput">Question:</label>
+        <textarea id="questionInput" rows="3" placeholder="Ask something about your documents..." required></textarea>
+
+        <label for="kInput">Top K results:</label>
+        <input type="number" id="kInput" value="5" min="1" max="20" />
+
+        <button type="submit" id="askBtn">Ask</button>
+      </form>
+      <p id="askStatus" class="status"></p>
+
+      <div id="answerText" class="answer-text"></div>
+      <div id="answerBox" class="answer-box"></div>
+    </section>
+
+    <!-- RIGHT: History -->
+    <section class="panel">
+      <h2>Question History</h2>
+      <button id="refreshHistoryBtn" class="secondary-btn">Refresh History</button>
+      <ul id="historyList" class="history-list">
+        <li class="empty">No history yet.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
